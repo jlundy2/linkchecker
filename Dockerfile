@@ -4,6 +4,8 @@ FROM python:3-slim
 ENV HOME /tmp
 
 RUN set -x \
+    && apt-get update \
+    && apt-get install -y git \
     && pip install --no-cache-dir git+https://github.com/linkchecker/linkchecker.git
 
 # /mnt enables linkchecker to access to access files on local machine if needed
